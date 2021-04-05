@@ -1,0 +1,7 @@
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\bin\Debug\Tridiagonal matrix algorithm.exe.config
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\bin\Debug\Tridiagonal matrix algorithm.exe
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\bin\Debug\Tridiagonal matrix algorithm.pdb
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\obj\Debug\Tridiagonal matrix algorithm.csprojAssemblyReference.cache
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\obj\Debug\Tridiagonal matrix algorithm.csproj.CoreCompileInputs.cache
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\obj\Debug\Tridiagonal matrix algorithm.exe
+C:\Users\tymni\source\repos\Tridiagonal matrix algorithm\obj\Debug\Tridiagonal matrix algorithm.pdb
