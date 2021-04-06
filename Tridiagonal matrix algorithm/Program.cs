@@ -78,14 +78,15 @@ namespace Tridiagonal_matrix_algorithm
                 case 1:
                     Console.WriteLine("Enter n (Length of X-vector): ");
                     n = Convert.ToInt32(Console.ReadLine());
-
+                    int count_corr = 0;
+                    
                     double[] A = new double[n-1];
                     double[] B = new double[n-1];
                     double[] C = new double[n];
                     double[] Y = new double[n];
                     List<double> F = new List<double>();
                     //Read Matrix
-                    using (StreamReader sr = new StreamReader("Matrix.txt"))
+                    using (StreamReader sr = new StreamReader("Matrix2.txt"))
                     {
 
 
@@ -125,13 +126,42 @@ namespace Tridiagonal_matrix_algorithm
                         }
                     }
                     //Cheak if matrix is correct
-                    if (Math.Abs(C[0]) < Math.Abs(B[0]))
+                    if (Math.Abs(C[0]) <= Math.Abs(B[0]))
                         throw new Exception("Matrix in not in correct form ");
-                    if (Math.Abs(C[n-1]) < Math.Abs(A[n-2]))
+                    if (Math.Abs(C[0]) > Math.Abs(B[0]))
+                        count_corr++;
+
+                    if (Math.Abs(C[n - 1]) > Math.Abs(A[n - 2]))
+                        count_corr++;
+                    if (Math.Abs(C[n - 1]) <= Math.Abs(A[n - 2]))
                         throw new Exception("Matrix in not in correct form ");
+
+                    bool is_bigger = true;
                     for (int i = 1; i < n-2; i++)
                     {
-                        if (Math.Abs(C[i]) < (Math.Abs(A[i])+Math.Abs(B[i])))
+                        if (Math.Abs(C[i]) <= (Math.Abs(A[i])+Math.Abs(B[i])))
+                            throw new Exception("Matrix in not in correct form ");
+                        if (Math.Abs(C[i]) > (Math.Abs(A[i]) + Math.Abs(B[i])))
+                            is_bigger = true;
+                        else
+                            is_bigger = false;
+
+                    }
+                    if (is_bigger)
+                        count_corr++;
+                    for (int i = 0; i < n - 1; i++)
+                    {
+                        if (Math.Abs(C[i]) < 0)
+                            throw new Exception("Matrix in not in correct form ");
+                    }
+                    for (int i = 1; i < n - 2; i++)
+                    {
+                        if (Math.Abs(A[i]) < 0)
+                            throw new Exception("Matrix in not in correct form ");
+                    }
+                    for (int i = 0; i < n - 3; i++)
+                    {
+                        if (Math.Abs(B[i]) < 0)
                             throw new Exception("Matrix in not in correct form ");
                     }
 
@@ -175,7 +205,13 @@ namespace Tridiagonal_matrix_algorithm
                     }
                     Console.WriteLine();
                     if (isTrue)
-                        Console.WriteLine("The solve is correct");
+                    {
+                        if (count_corr > 0)
+                            Console.WriteLine("Solve is correct");
+                        else
+                            Console.WriteLine("Error");
+                    }
+                    
                     break;
                 case 2:
                     Console.WriteLine("Enter n: ");
